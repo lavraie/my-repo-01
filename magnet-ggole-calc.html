@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title></title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <script
+    type="text/javascript"
+    src="/js/lib/dummy.js"
+    
+  ></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+
+
+  <style id="compiled-css" type="text/css">
+      
+  </style>
+
+</head>
+<body>
+    <ul id="myul">
+    <li>hello</li>
+    <li>world</li>
+    <li>coucou</li>
+    <li>bonjour</li>
+</ul>
+
+<p id="p1">
+</p>
+<br>
+<br>
+
+<p id="demo"></p>
+
+<button id ="b1" onclick="clicked1()"> click </button>
+<h1 id="h1">
+
+</h1>
+
+  <!-- TODO: Missing CoffeeScript 2 -->
+
+  <script type="text/javascript">//<![CDATA[
+
+
+ const kl=[];
+ const i=0;
+/* document.getElementById("demo").innerHTML = kl; */
+    Array.from(document.querySelectorAll('#myul>li'),li => 
+    document.write(li.textContent + " ")
+    );
+    
+    Array.from(document.querySelectorAll('#myul>li'),li => kl.push(li.textContent)
+    );
+    
+ document.write(kl[1] + " ");
+ 
+ console.log(JSON.stringify(kl));  
+    
+ document.write(kl.length);
+
+ /* 
+ function clicked(){
+ var node = document.createElement("LI");                 // Create a <li> node
+ var textnode = document.createTextNode(kl[3]);         // Create a text node
+ node.appendChild(textnode);                              // Append the text to <li>
+ document.getElementById("myul").appendChild(node);     // Append <li> to <ul> with id="myList"
+  console.log("great");
+  navigator.clipboard.writeText(kl[1]);
+  document.getElementById("b1").textContent = kl[2];
+    document.getElementById("h1").textContent = kl[0];
+ kl.forEach(element => setTimeout(function(){console.log(element);}, 1500);
+ 
+ 
+ }; */
+ /* 
+ function clicked1(){
+ kl.forEach(element => setTimeout(function(){console.log(element);}, 1500));
+ 
+ 
+ } */
+   function clicked1(){
+   (function loopIt(i) {
+  setTimeout(function(){
+      // your code handling here
+      navigator.clipboard.writeText(kl[i]);
+      document.getElementById("h1").textContent = kl[i];
+      console.log(kl[i]);
+      if(i < kl.length - 1)  loopIt(i+1)
+    }, 1500);
+})(i)
+}
+
+
+  //]]></script>
+
+  <script>
+    // tell the embed parent frame the height of the content
+    if (window.parent && window.parent.parent){
+      window.parent.parent.postMessage(["resultsFrame", {
+        height: document.body.getBoundingClientRect().height,
+        slug: "ahw806dt"
+      }], "*")
+    }
+
+    // always overwrite window.name, in case users try to set it manually
+    window.name = "result"
+  </script>
+</body>
+</html>
